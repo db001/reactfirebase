@@ -33,10 +33,6 @@ class SignUpFormBase extends Component {
 
     const { username, email, passwordOne } = this.state;
 
-    console.log(
-      this.props.firebase.doCreateUserWithEmailAndPassword(email, passwordOne)
-    );
-
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne)
       .then((authUser) => {
@@ -110,6 +106,8 @@ const SignUpForm = compose(
   withRouter,
   withFirebase
 )(SignUpFormBase);
+
+// const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
 export default SignUpPage;
 
